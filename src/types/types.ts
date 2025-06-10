@@ -1,10 +1,12 @@
 export type Order = "asc" | "desc";
 
+export type IP = string;
+
 export interface Route {
   uuid: string;
-  address: string;
-  mask: string;
-  gateway: string;
+  address: IP;
+  mask: IP;
+  gateway: IP;
   interface: string;
 }
 

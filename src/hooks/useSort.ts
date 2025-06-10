@@ -1,5 +1,9 @@
 import { useState, useMemo } from "react";
-import type { Order } from "../types/types";
+import type { Order, IP } from "../types/types";
+
+function isIP(value: unknown): value is IP {
+  return typeof value === "string" && /^(\d{1,3}\.){3}\d{1,3}$/.test(value);
+}
 
 export function useSort<T>(
   data: T[],
@@ -32,6 +36,19 @@ export function useSort<T>(
 
       if (typeof aValue === "number" && typeof bValue === "number") {
         return order === "asc" ? aValue - bValue : bValue - aValue;
+      }
+
+      if (isIP(aValue) && isIP(bValue)) {
+        const ipToArray = (ip: IP) => ip.split(".").map(Number);
+        const aIp = ipToArray(aValue);
+        const bIp = ipToArray(bValue);
+
+        for (let i = 0; i < 4; i++) {
+          if (aIp[i] !== bIp[i]) {
+            return order === "asc" ? aIp[i] - bIp[i] : bIp[i] - aIp[i];
+          }
+        }
+        return 0;
       }
 
       if (aValue instanceof Date && bValue instanceof Date) {
