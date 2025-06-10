@@ -8,7 +8,7 @@ import {
   TableRow,
 } from "@mui/material";
 import { useSort } from "../../hooks/useSort";
-import type { VirtualizedTableProps } from "../../types/types";
+import type { SortindTableProps } from "../../types/types";
 import FixedHeaderContent from "./fixedHeaderContent/FixedHeaderContent";
 import RowContent from "./rowContent/RowContent";
 import styles from "./sorting-table.module.scss";
@@ -18,7 +18,7 @@ const SortingTable = <T extends object>({
   data,
   defaultSortBy,
   tableHeight = "auto",
-}: VirtualizedTableProps<T>) => {
+}: SortindTableProps<T>) => {
   const { sortedData, order, orderBy, handleSort } = useSort<T>(
     data,
     (defaultSortBy ?? columns[0].key) as Extract<keyof T, string | number>

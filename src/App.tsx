@@ -9,15 +9,25 @@ function App() {
       <Container
         sx={{
           display: "flex",
+          width: "70%",
           flexDirection: "column",
           gap: "15px",
-          padding: "10px 40px",
+          padding: "5px 40px",
         }}
       >
-        <Typography variant='h2' component='h1' textAlign='center' color='secondary'>
+        <Typography
+          variant='h2'
+          component='h1'
+          textAlign='center'
+          color='secondary'
+        >
           Sorting Table
         </Typography>
         <ActiveRoutesTable />
+        <Typography variant='body2' textAlign='right' color='secondary'>
+          Тестовое задание для "НДМ Системы" <br />
+          Выполнила <a href='https://github.com/talfril'>Набокова Анна</a>
+        </Typography>
       </Container>
     </ThemeProvider>
   );

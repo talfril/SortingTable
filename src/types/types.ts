@@ -21,7 +21,7 @@ export interface Column<T> {
   headerStyle?: React.CSSProperties;
 }
 
-export interface VirtualizedTableProps<T> {
+export interface SortindTableProps<T> {
   columns: Column<T>[];
   data: T[];
   defaultSortBy?: keyof T;

@@ -27,7 +27,7 @@ const columns: Column<Route>[] = [
 const ActiveRoutesTable = () => {
   return (
     <>
-      <Typography variant='h5' component='h3' sx={{ mb: 2 }}>
+      <Typography variant='h5' component='h3'>
         Действующие маршруты IPv4
       </Typography>
 
